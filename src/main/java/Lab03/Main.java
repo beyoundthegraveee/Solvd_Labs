@@ -123,6 +123,59 @@ public class Main {
         System.out.println(course.getCourseDetails());
         /////////////////////////////////////////////////
 
+        ArrayList<Event> events = new ArrayList<>();
+        events.add(new Event("Physics Conference", LocalDate.of(2024, 11, 20), "Warsaw"));
+        events.add(new Event("Math Conference", LocalDate.of(2024, 3, 10), "Warsaw"));
+        Semestr semestr = new Semestr(1,  "2024/2025", events, LocalDate.of(2024, 9, 1),
+                LocalDate.of(2025, 1, 31));
+
+        System.out.println(semestr);
+
+        Equipment [] equipmentList = {Equipment.PROJECTOR, Equipment.SMART_BOARD, Equipment.COMPUTER, Equipment.AUDIO_SYSTEM, Equipment.DOCUMENT_CAMERA};
+
+        ArrayList<Classroom> classrooms = new ArrayList<>();
+
+        LightingType [] lightingTypes = {LightingType.LED, LightingType.Natural};
+
+        LectureRoom lectureRoom1 = new LectureRoom(
+                100, 401, "Main Building", 4,
+                equipmentList, true, true, lightingTypes,
+                true, 10);
+
+        LectureRoom lectureRoom2 = new LectureRoom(
+                80, 502, "Main Building", 5,
+                equipmentList, false, false, lightingTypes,
+                true, 15);
+
+        classrooms.add(lectureRoom1);
+        classrooms.add(lectureRoom2);
+        classrooms.add(laboratory);
+
+        DayOfWeek[] days = {DayOfWeek.Monday, DayOfWeek.Tuesday, DayOfWeek.Wednesday, DayOfWeek.Friday};
+
+        Schedule schedule = new Schedule(days, LocalDate.of(2024, 1, 15), LocalDate.of(2024, 6, 30), classrooms);
+
+        System.out.println(schedule);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     }

@@ -52,4 +52,22 @@ public class Schedule {
     public void setClassrooms(ArrayList<Classroom> classrooms) {
         this.classrooms = classrooms;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("Schedule: \n");
+        sb.append("Days of Week: ");
+        for (DayOfWeek day : daysOfWeek) {
+            sb.append(day).append(" ");
+        }
+        sb.append("\nStart Date: ").append(startDate);
+        sb.append("\nEnd Date: ").append(endDate);
+        sb.append("\nClassrooms:\n");
+        for (Classroom classroom : classrooms) {
+            sb.append(classroom.toString()).append("\n");
+        }
+        return sb.toString();
+    }
+
+
 }
