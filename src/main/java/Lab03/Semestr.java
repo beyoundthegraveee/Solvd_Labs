@@ -92,6 +92,10 @@ public class Semestr {
         }
     }
 
+    public void removeAllEvents(){
+        this.events.clear();
+    }
+
 
 
 }

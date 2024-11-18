@@ -136,6 +136,12 @@ public class Main {
 
         System.out.println(semestr + "\n");
 
+        semestr.removeAllEvents();
+
+        System.out.println(semestr + "\n");
+
+
+
         Equipment [] equipmentList = {Equipment.PROJECTOR, Equipment.SMART_BOARD, Equipment.COMPUTER, Equipment.AUDIO_SYSTEM, Equipment.DOCUMENT_CAMERA};
 
         ArrayList<Classroom> classrooms = new ArrayList<>();
