@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 
 public class Main {
@@ -129,7 +130,11 @@ public class Main {
         Semestr semestr = new Semestr(1,  "2024/2025", events, LocalDate.of(2024, 9, 1),
                 LocalDate.of(2025, 1, 31));
 
-        System.out.println(semestr);
+        System.out.println(semestr + "\n");
+        semestr.removeEventByName("Physics Conference");
+        semestr.addEvent(new Event("Game jam 2024", LocalDate.of(2024, 11, 20), "Warsaw, Main building"));
+
+        System.out.println(semestr + "\n");
 
         Equipment [] equipmentList = {Equipment.PROJECTOR, Equipment.SMART_BOARD, Equipment.COMPUTER, Equipment.AUDIO_SYSTEM, Equipment.DOCUMENT_CAMERA};
 

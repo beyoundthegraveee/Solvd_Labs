@@ -1,5 +1,7 @@
 package Lab03;
 
+import java.util.Arrays;
+
 public class LectureRoom extends Classroom{
 
     private boolean hasAirConditioning;
@@ -48,5 +50,15 @@ public class LectureRoom extends Classroom{
 
     public void setNumberOfWindows(int numberOfWindows) {
         this.numberOfWindows = numberOfWindows;
+    }
+
+    @Override
+    public String toString() {
+        return "LectureRoom{" +
+                "hasAirConditioning=" + hasAirConditioning +
+                ", lightingTypes=" + Arrays.toString(lightingTypes) +
+                ", hasWifi=" + hasWifi +
+                ", numberOfWindows=" + numberOfWindows +
+                '}';
     }
 }

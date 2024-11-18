@@ -74,6 +74,24 @@ public class Semestr {
                 '}';
     }
 
+    public boolean removeEventByName(String eventName) {
+        for (Event event : events) {
+            if (event.getEventName().equalsIgnoreCase(eventName)) {
+                events.remove(event);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void addEvent(Event event) {
+        if (event != null) {
+            this.events.add(event);
+        } else {
+            System.out.println("Event cannot be null");
+        }
+    }
+
 
 
 }
