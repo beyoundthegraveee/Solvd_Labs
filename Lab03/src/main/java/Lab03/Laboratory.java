@@ -1,8 +1,10 @@
 package Lab03;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
-public class Laboratory extends Classroom{
+public class Laboratory extends Classroom implements EquipmentOrder{
 
     private String labName;
 
@@ -54,5 +56,39 @@ public class Laboratory extends Classroom{
                 ", Supervisor=" + Supervisor +
                 ", labName='" + labName + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean orderEquipment(Equipment equipment) {
+        if (equipment != null && !isEquipmentAvailable(equipment)) {
+            List<Equipment> equipmentList = new ArrayList<>(Arrays.asList(this.equipment));
+            equipmentList.add(equipment);
+            this.equipment = equipmentList.toArray(new Equipment[0]);
+            System.out.println(equipment + " has been ordered for the laboratory.");
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean isEquipmentAvailable(Equipment equipment) {
+        return Arrays.asList(this.equipment).contains(equipment);
+    }
+
+    @Override
+    public boolean removeEquipment(Equipment equipment) {
+        if (equipment != null && isEquipmentAvailable(equipment)) {
+            List<Equipment> equipmentList = new ArrayList<>(Arrays.asList(this.equipment));
+            equipmentList.remove(equipment);
+            this.equipment = equipmentList.toArray(new Equipment[0]);
+            System.out.println(equipment + " has been removed from the laboratory.");
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public Equipment[] listAvailableEquipment() {
+        return this.equipment;
     }
 }

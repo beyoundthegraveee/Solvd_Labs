@@ -12,7 +12,7 @@ public abstract class Employee extends Person {
 
     protected Department department;
 
-    protected abstract void getInfoAboutEmployee();
+    protected abstract String getInfoAboutEmployee();
 
 
     public Employee(String name, String surname, int age, String employeeId, String profession, EmployeeStatus status, Department department) {
@@ -69,4 +69,6 @@ public abstract class Employee extends Person {
     public int hashCode() {
         return Objects.hash(employeeId, profession, status, department);
     }
+
+
 }

@@ -3,8 +3,9 @@ package Lab03;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.Random;
 
-public class Student extends Person {
+public class Student extends Person implements StudentHomework{
 
     private String studentID;
 
@@ -13,6 +14,8 @@ public class Student extends Person {
     private String contactInfo;
 
     private LocalDate enrollmentDate;
+
+    private ArrayList<Assignment> assignments = new ArrayList<>();
 
     public Student(String name, String surname, int age, String studentID, ArrayList<Grade> grades, String contactInfo, LocalDate enrollmentDate) {
         super(name, surname, age);
@@ -87,4 +90,52 @@ public class Student extends Person {
                 ", age=" + age +
                 '}';
     }
+
+    public void addAssignment(Assignment assignment) {
+        assignments.add(assignment);
+        System.out.println("Assignment '" + assignment.getDescription() + "' has been added to the student.");
+    }
+
+    @Override
+    public void completeAssignment(Assignment assignment) {
+        if (assignments.contains(assignment)) {
+            assignment.setStatus(AssignmentStatus.COMPLETED);
+            System.out.println("Assignment '" + assignment.getDescription() + "' is now completed.");
+        } else {
+            System.out.println("Assignment not found: " + assignment.getDescription());
+        }
+    }
+
+    @Override
+    public void skipAssignment(Assignment assignment) {
+        if (assignments.contains(assignment)) {
+            assignment.setStatus(AssignmentStatus.UNCOMPLETED);
+            System.out.println("Assignment '" + assignment.getDescription() + "' has been skipped.");
+        } else {
+            System.out.println("Assignment not found: " + assignment.getDescription());
+        }
+    }
+
+    @Override
+    public void doneAssignment(Assignment assignment) {
+        if (assignments.contains(assignment)) {
+            assignment.setStatus(AssignmentStatus.IN_PROGRESS);
+            System.out.println("Assignment '" + assignment.getDescription() + "' is now in progress.");
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                System.out.println("The thread was interrupted.");
+            }
+            Random random = new Random();
+            if (random.nextBoolean()) {
+                completeAssignment(assignment);
+            } else {
+                skipAssignment(assignment);
+            }
+
+        } else {
+            System.out.println("Assignment not found: " + assignment.getDescription());
+        }
+    }
+
 }

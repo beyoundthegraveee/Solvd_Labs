@@ -1,6 +1,7 @@
 package Lab03;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 
 public class Exam {
@@ -9,13 +10,16 @@ public class Exam {
 
     private LocalDate dateOfExam;
 
-    private int duration;
+    private LocalTime timeOfExam;
+
+    private double duration;
 
     private String location;
 
-    public Exam(Subject subject, LocalDate dateOfExam, int duration, String location) {
+    public Exam(Subject subject, LocalDate dateOfExam, LocalTime timeOfExam, double duration, String location) {
         this.subject = subject;
         this.dateOfExam = dateOfExam;
+        this.timeOfExam = timeOfExam;
         this.duration = duration;
         this.location = location;
     }
@@ -36,11 +40,11 @@ public class Exam {
         this.dateOfExam = dateOfExam;
     }
 
-    public int getDuration() {
+    public double getDuration() {
         return duration;
     }
 
-    public void setDuration(int duration) {
+    public void setDuration(double duration) {
         this.duration = duration;
     }
 
@@ -50,6 +54,14 @@ public class Exam {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public LocalTime getTimeOfExam() {
+        return timeOfExam;
+    }
+
+    public void setTimeOfExam(LocalTime timeOfExam) {
+        this.timeOfExam = timeOfExam;
     }
 
     @Override

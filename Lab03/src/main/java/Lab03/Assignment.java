@@ -8,12 +8,23 @@ public class Assignment {
 
     private String description;
 
+    private AssignmentStatus status;
+
     private LocalDate theEndDate;
 
-    public Assignment(int numberOfAssignment, String description, LocalDate theEndDate) {
+    public Assignment(int numberOfAssignment, String description, LocalDate theEndDate, AssignmentStatus status) {
         this.numberOfAssignment = numberOfAssignment;
         this.description = description;
         this.theEndDate = theEndDate;
+        this.status = status;
+    }
+
+    public AssignmentStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(AssignmentStatus status) {
+        this.status = status;
     }
 
     public Assignment() {

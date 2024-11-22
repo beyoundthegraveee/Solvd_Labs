@@ -55,8 +55,8 @@ public class Practitioner extends Employee{
     }
 
     @Override
-    public void getInfoAboutEmployee() {
-        System.out.println("Name: " + getName() +
+    public String getInfoAboutEmployee() {
+        return "Name: " + getName() +
                 "\nSurname: " + getSurname() +
                 "\nAge: " + getAge() +
                 "\nEmployee ID: " + getEmployeeId() +
@@ -66,7 +66,7 @@ public class Practitioner extends Employee{
                 "\nContact Info: " + getContactInfo() +
                 "\nAmount of Classes: " + getAmountOfClasses() +
                 "\nSubjects: " + subjects +
-                "\n");
+                "\n";
 
     }
 

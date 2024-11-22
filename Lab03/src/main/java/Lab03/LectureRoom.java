@@ -1,8 +1,10 @@
 package Lab03;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Arrays;
 
-public class LectureRoom extends Classroom{
+public class LectureRoom extends Classroom implements ExamConducting{
 
     private boolean hasAirConditioning;
 
@@ -60,5 +62,25 @@ public class LectureRoom extends Classroom{
                 ", hasWifi=" + hasWifi +
                 ", numberOfWindows=" + numberOfWindows +
                 '}';
+    }
+
+    @Override
+    public void startExam(Exam exam) {
+        if (isClassAvailableForExam(exam)) {
+            System.out.println("Starting exam on " + exam.getSubject() + " at " + exam.getDateOfExam() + " " + exam.getTimeOfExam());
+        } else {
+            System.out.println("Lecture room is not available for the exam.");
+        }
+    }
+
+    @Override
+    public void endExam(Exam exam) {
+        LocalTime endTime = exam.getTimeOfExam().plusMinutes(90);
+        System.out.println("Ending exam on " + exam.getSubject() + " at " + exam.getDateOfExam() + " " + endTime);
+    }
+
+    @Override
+    public boolean isClassAvailableForExam(Exam exam) {
+        return isAvailable() && exam.getDateOfExam().isAfter(LocalDate.of(2024, 7,5));
     }
 }

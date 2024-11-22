@@ -1,6 +1,6 @@
 package Lab03;
 
-public abstract class Classroom {
+public abstract class Classroom{
 
     protected int numberOfSeats;
 
